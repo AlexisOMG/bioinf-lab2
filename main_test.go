@@ -9,58 +9,46 @@ import (
 
 func TestGetScore(t *testing.T) {
 	cases := []struct {
-		name                 string
-		first                string
-		second               string
-		gap                  int
-		expectedScore        int
-		expectedFirstString  string
-		expectedSecondString string
+		name          string
+		first         string
+		second        string
+		gap           int
+		expectedScore int
 	}{
 		{
-			name:                 "lesson_example",
-			first:                "AATCGA",
-			second:               "AACGT",
-			gap:                  -5,
-			expectedScore:        11,
-			expectedFirstString:  "AATCGA",
-			expectedSecondString: "AA-CGT",
+			name:          "lesson_example",
+			first:         "AATCGA",
+			second:        "AACGT",
+			gap:           -5,
+			expectedScore: 11,
 		},
 		{
-			name:                 "only_substitution",
-			first:                "AATCGA",
-			second:               "TTTTTT",
-			gap:                  -5,
-			expectedScore:        -15,
-			expectedFirstString:  "AATCGA",
-			expectedSecondString: "TTTTTT",
+			name:          "only_substitution",
+			first:         "AATCGA",
+			second:        "TTTTTT",
+			gap:           -5,
+			expectedScore: -15,
 		},
 		{
-			name:                 "single_match_several_deleting",
-			first:                "TTTTTT",
-			second:               "T",
-			gap:                  -5,
-			expectedScore:        -20,
-			expectedFirstString:  "TTTTTT",
-			expectedSecondString: "-----T",
+			name:          "single_match_several_deleting",
+			first:         "TTTTTT",
+			second:        "T",
+			gap:           -5,
+			expectedScore: -20,
 		},
 		{
-			name:                 "empty_second_string",
-			first:                "TTTTTT",
-			second:               "",
-			gap:                  -5,
-			expectedScore:        -30,
-			expectedFirstString:  "TTTTTT",
-			expectedSecondString: "------",
+			name:          "empty_second_string",
+			first:         "TTTTTT",
+			second:        "",
+			gap:           -5,
+			expectedScore: -30,
 		},
 		{
-			name:                 "empty_first_string",
-			first:                "",
-			second:               "TTTTTT",
-			gap:                  -5,
-			expectedScore:        -30,
-			expectedFirstString:  "------",
-			expectedSecondString: "TTTTTT",
+			name:          "empty_first_string",
+			first:         "",
+			second:        "TTTTTT",
+			gap:           -5,
+			expectedScore: -30,
 		},
 	}
 
