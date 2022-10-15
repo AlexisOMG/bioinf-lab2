@@ -125,11 +125,26 @@ func solve(first, second string, match, mismatch, gap, k int) int {
 }
 
 func main() {
-	// var first, second string
-	// var match, mismatch, gap, k int
+	var first, second string
+	var match, mismatch, gap, k int
 
-	// fmt.Scanf("%s %s %d %d %d %d", &first, &second, &match, &mismatch, &gap, &k)
+	fmt.Println("Enter first string:")
+	fmt.Scanf("%s", &first)
+	fmt.Println("Enter second string:")
+	fmt.Scanf("%s", &second)
+	fmt.Println("Enter match value:")
+	fmt.Scanf("%d", &match)
+	fmt.Println("Enter mismatch value:")
+	fmt.Scanf("%d", &mismatch)
+	fmt.Println("Enter gap value:")
+	fmt.Scanf("%d", &gap)
+	fmt.Println("Enter k value:")
+	fmt.Scanf("%d", &k)
 
-	fmt.Println(solve("AA", "BBBBBAA", 5, -100, -10, 0))
-	fmt.Println(solve("AA", "BBBBBAA", 5, -100, -10, 10))
+	score, err := optimizeSolve(first, second, match, mismatch, gap, k)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	fmt.Println(score)
 }
