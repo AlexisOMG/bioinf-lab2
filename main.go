@@ -113,7 +113,7 @@ func solve(first, second string, match, mismatch, gap, k int) int {
 				deleting = val + gap
 			}
 			if val, ok := dp[Index{i, j - 1}]; ok {
-				deleting = val + gap
+				inserting = val + gap
 			}
 
 			maxCost := max(substitution, deleting, inserting)
